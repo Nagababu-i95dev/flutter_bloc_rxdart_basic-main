@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:rxdart/rxdart.dart';
 import '../models/item_model.dart';
-import '../resources/repository.dart';
+import '../../resources/repository.dart';
 
 class MoviesBloc {
   final _repository = Repository();
@@ -12,9 +12,9 @@ class MoviesBloc {
   final _movieDetails = BehaviorSubject<Result>();
 
   // sends the list of all movies to UI
-  Observable<ItemModel> get allMovies => _moviesFetcher.stream;
+  Stream<ItemModel> get allMovies => _moviesFetcher.stream;
 
-  Observable<Result> get movieDetails => _movieDetails.stream;
+  Stream<Result> get movieDetails => _movieDetails.stream;
 
   fetchAllMovies() async {
     ItemModel itemModel = await _repository.fetchAllMovies();
@@ -43,6 +43,7 @@ class MoviesBloc {
   }
 
   dispose() {
+    print('Movie Bloc disposed');
     _moviesFetcher.close();
   }
 }

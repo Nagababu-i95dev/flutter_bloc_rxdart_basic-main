@@ -5,12 +5,13 @@ class ItemModel {
   List<Result> _results = [];
   String? error;
 
+  ItemModel();
+
   ItemModel.withError(String errorMessage) {
     error = errorMessage;
   }
 
   ItemModel.fromJson(Map<String, dynamic> parsedJson) {
-    print('Parsed JSon ${parsedJson['results'].length}');
     _page = parsedJson['page'];
     _totalResults = parsedJson['total_results'];
     _totalPages = parsedJson['total_pages'];

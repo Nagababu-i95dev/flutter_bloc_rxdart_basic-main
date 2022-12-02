@@ -1,5 +1,3 @@
-
-
 bool strNotEmpty(String? str) {
   return !strEmpty(str);
 }
