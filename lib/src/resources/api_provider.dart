@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
 
-import '../models/item_model.dart';
-import 'NetworkLogger.dart';
+import '../movies/models/item_model.dart';
+import 'network_logger.dart';
 
 class MovieApiProvider {
   final _apiKey = '802b2c4b88ea1183e50e6b285a27696e';
